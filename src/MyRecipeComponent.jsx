@@ -1,10 +1,19 @@
+import { useState } from "react";
+
 function MyRecipesComponent ({label, calories, image, ingredients, dishType, digest}) {
+
+    // const[showNutrition, setShowNutrition] = useState(false);
+
+    // const handleShowNutrition = ()=> {
+    //     setShowNutrition(!handleShowNutrition)
+    // }
+    
     return(
         <div className="recipe_box">
             <div className="container">
                 <h2>{label}</h2>
             </div>
-            <div className="container">
+            <div className="ingr">
                 <h5>{dishType}</h5>
             </div>
             <div className="container">
@@ -18,13 +27,32 @@ function MyRecipesComponent ({label, calories, image, ingredients, dishType, dig
                     <li key={index}><span>{ingredient}</span></li>
                 ))}
             </ul>
+
+            <div className="ingr">
+                <h5>Nutritional value ⬇</h5>
+                {/* <button onClick={handleShowNutrition}>open</button> */}
+            </div>
+            {/* <div className={showNutrition ? 'active' : 'default'}> */}
+            
             <div className="container">
-                <ul>
-                {digest.map(item => (
-                    <li>{item.Fat}</li>
+                <ul className="table-box">
+                    {digest.map((item, index) => (
+                    <li className="table" key={index}>{item.tag}</li>
+                ))}
+                </ul>
+                <ul className="table-box">
+                {digest.map((item, index) => (
+                    <li className="table" key={index}>{item.total.toFixed(2)}</li>
+                ))}
+                </ul>
+                <ul className="table-box">
+                {digest.map((item, index) => (
+                    <li className="table" key={index}>{item.unit}</li>
                 ))}
                 </ul>
             </div>
+            
+            {/* </div> */}
         </div>
     )
 }
