@@ -37,7 +37,7 @@ function MyRecipesComponent ({label, calories, image, ingredients, dishType, dig
             <div className="container">
                 <ul className="table-box">
                     {digest.map((item, index) => (
-                    <li className="table" key={index}>{item.tag}</li>
+                    <li className="table" key={index}>{item.label}</li>
                 ))}
                 </ul>
                 <ul className="table-box">
