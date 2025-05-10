@@ -10,14 +10,12 @@ function App () {
 
   const [mySearch, setMySearch] = useState("");
   const [myRecipes, setMyRecipes] = useState([]);
-  const [wordSubmitted, setWordSubmitted] = useState("apple");
+  const [wordSubmitted, setWordSubmitted] = useState("avocado");
 
   useEffect(()=> {
     const getRecipe = async ()=> {
       const response = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${wordSubmitted}&app_id=${MY_ID}&app_key=${MY_KEY}`);
       const data = await response.json();
-      console.log(data);
-      console.log(data.hits)
       setMyRecipes(data.hits)
     }
     getRecipe()
@@ -35,7 +33,7 @@ function App () {
   return(
     <div>
       <div className="header">
-        <h1>Fridge descovering APP</h1>
+        <h1>Fridge descovery APP</h1>
         <h3>Let's be inspired...</h3>
         <h4>So, what do we have in the fridge?</h4> 
         
@@ -59,7 +57,6 @@ function App () {
           calories = {element.recipe.calories} 
           image = {element.recipe.image} 
           ingredients = {element.recipe.ingredientLines} 
-          dishType = {element.recipe.dishType} 
           digest = {element.recipe.digest}
           />
         ))}
