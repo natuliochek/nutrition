@@ -33,7 +33,7 @@ function App () {
   return(
     <div>
       <div className="header">
-        <h1>Fridge descovery APP</h1>
+        <h1>Fridge discovery APP</h1>
         <h3>Let's be inspired...</h3>
         <h4>So, what do we have in the fridge?</h4> 
         
