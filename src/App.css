@@ -73,8 +73,6 @@ span{
 h1{
   color: rgb(84, 106, 78);
   text-shadow: rgb(84, 106, 78, 0.5) 2px -10px 4px;
-  /* color: rgb(54, 66, 48);
-  text-shadow: rgb(234, 138, 138) 2px -8px 4px; */
 }
 h2{
   color: rgb(234, 138, 138);
@@ -92,12 +90,4 @@ h4{
 h5{
   color: rgb(54, 66, 48);
   text-transform: uppercase;
-}
-
-.default{
-  display: none;
-}
-
-.active{
-  display: block;
 }
