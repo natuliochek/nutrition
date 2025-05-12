@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function MyRecipesComponent ({label, calories, image, ingredients, digest}) {
 
-    const[showNutrition, setShowNutrition] = useState('default');
+    const[showNutrition, setShowNutrition] = useState(false);
 
     const handleShowNutrition = ()=> {
         setShowNutrition(!showNutrition)
@@ -24,24 +24,22 @@ function MyRecipesComponent ({label, calories, image, ingredients, digest}) {
                     <li key={index}><span>{ingredient}</span></li>
                 ))}
             </ul>
-
             <div className="container">
                 <button onClick={handleShowNutrition}>
-                    {showNutrition ? "Nutritional value ⬇" : "Close table ⬆"}
+                    {showNutrition ? "Close table ⬆" : "Nutritional value ⬇"}
                     </button>
             </div>
-            
-            <div className="container">
-                <ul className={showNutrition ? 'default' : 'active'}>
-                    {digest.map((item, index) => (
-                    <li className="table" key={index}>
+            {showNutrition && <div className="container">
+                <ul>
+                {digest.map((item, index) => (
+                    <li className="table"  key={index}>
                         <span>{item.label}</span> - 
-                        <span> {item.total.toFixed(2)}</span>
-                        <span> {item.unit}</span></li>
+                        <span>{item.total.toFixed(2)}</span>
+                        <span>{item.unit}</span> 
+                    </li>
                 ))}
                 </ul>
-            </div>
-            
+            </div>}
         </div>
     )
 }
